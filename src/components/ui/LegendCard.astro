@@ -1,0 +1,24 @@
+---
+import {icons} from '../../data/icons'
+
+interface Props {
+  legend: Legend
+}
+
+const { legend }: Props = Astro.props;
+const SelectedIcon = icons[legend.iconName];
+---
+
+<article
+  class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-center text-center"
+>
+  <div data-id="ochM" class="rounded-full bg-blue-100 p-4 mb-4">
+    <SelectedIcon class="text-blue-600 text-3xl" />
+  </div>
+  <h3 data-id="AKo0" class="text-xl font-bold text-gray-800 mb-2">
+    {legend.title}
+  </h3>
+  <p data-id="rtmf" class="text-gray-600">
+    {legend.description}
+  </p>
+</article>

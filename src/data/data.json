@@ -1,0 +1,60 @@
+{
+  "header": {
+    "title": "Nuestros Servicios",
+    "description": "Ofrecemos soluciones integrales para el mantenimiento y mejora de tu hogar o negocio en Valencia."
+  },
+  "legends": [
+    {
+      "title": "Experiencia Comprobada",
+      "description": "Más de 15 años brindando servicios de alta calidad en Valencia.",
+      "iconName": "verified"
+    },
+    {
+      "title": "Puntualidad",
+      "description": "Respetamos tu tiempo y cumplimos con los plazos establecidos.",
+      "iconName": "schedule"
+    },
+    {
+      "title": "Precios Competitivos",
+      "description": "Ofrecemos la mejor relación calidad-precio del mercado.",
+      "iconName": "euro"
+    },
+    {
+      "title": "Atención Personalizada",
+      "description": "Cada cliente recibe un trato único y adaptado a sus necesidades.",
+      "iconName": "support_agent"
+    }
+  ],
+  "services": [
+    {
+      "title": "Fontanería",
+      "description": "Soluciones de fontanería confiables y eficientes. Reparaciones, instalaciones y mantenimiento para tu hogar o negocio.",
+      "iconName": "water_drop",
+      "imageUrl": "https://images.unsplash.com/photo-1542013936693-884638332954?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzkyNDZ8MHwxfHNlYXJjaHwxfHxwbHVtYmluZ3xlbnwwfHx8fDE3NDc5NDk2NzB8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "title": "Albañilería",
+      "description": "Renovaciones y remodelaciones profesionales. Transformamos espacios con calidad y atención al detalle.",
+      "iconName": "construction",
+      "imageUrl": "https://images.unsplash.com/photo-1603518147824-0d8ed2132213?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzkyNDZ8MHwxfHNlYXJjaHwxfHxtYXNvbnJ5fGVufDB8fHx8MTc0Nzk0OTY3NXww&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "title": "Pintura",
+      "description": "Trabajo de pintura interior y exterior con acabados duraderos. Transformamos espacios con color y estilo.",
+      "iconName": "format_paint",
+      "imageUrl": "https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
+    },
+    {
+      "title": "Carpintería de madera",
+      "description": "Muebles y estructuras personalizadas. Creamos piezas únicas que combinan estética y funcionalidad.",
+      "iconName": "carpenter",
+      "imageUrl": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80"
+    },
+    {
+      "title": "Electricidad",
+      "description": "Instalaciones eléctricas seguras y eficaces. Soluciones profesionales para cualquier necesidad eléctrica.",
+      "iconName": "electric_bolt",
+      "imageUrl": "https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80"
+    }
+  ]
+}

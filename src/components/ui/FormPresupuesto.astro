@@ -1,0 +1,148 @@
+---
+import jsonData from "../../data/data.json";
+const data = jsonData as Data;
+
+const { services } = data;
+const servicesNames = services.map((service) => service.title).sort();
+---
+
+<form id="form-presupuesto" class="space-y-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label
+        for="budget-name"
+        class="block text-sm font-medium text-gray-700 mb-1"
+        >Nombre completo</label
+      >
+      <input
+        type="text"
+        id="budget-name"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+        placeholder="Tu nombre"
+      />
+    </div>
+    <div>
+      <label
+        for="budget-email"
+        class="block text-sm font-medium text-gray-700 mb-1"
+        >Correo electrónico</label
+      >
+      <input
+        type="email"
+        id="budget-email"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+        placeholder="tucorreo@ejemplo.com"
+        required
+      />
+    </div>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label
+        for="budget-phone"
+        class="block text-sm font-medium text-gray-700 mb-1">Teléfono</label
+      >
+      <input
+        type="tel"
+        id="budget-phone"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+        placeholder="123 456 789"
+      />
+    </div>
+    <div>
+      <label
+        for="budget-service"
+        class="block text-sm font-medium text-gray-700 mb-1"
+        >Servicio requerido</label
+      >
+      <select
+        id="budget-service"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+      >
+        <option value="" disabled="" selected="">Selecciona un servicio</option>
+        {
+          servicesNames.map((service) => (
+            <option value={service.toLowerCase()}>{service}</option>
+          ))
+        }
+        <option value="otro">Otro servicio</option>
+      </select>
+    </div>
+  </div>
+  <div>
+    <label
+      for="budget-address"
+      class="block text-sm font-medium text-gray-700 mb-1">Dirección</label
+    >
+    <input
+      type="text"
+      id="budget-address"
+      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+      placeholder="Calle, número, código postal"
+      required
+    />
+  </div>
+  <div>
+    <label
+      for="budget-description"
+      class="block text-sm font-medium text-gray-700 mb-1"
+      >Descripción del trabajo</label
+    >
+    <textarea
+      id="budget-description"
+      rows="8"
+      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+      placeholder="Describe el trabajo que necesitas realizar..."
+      required></textarea>
+  </div>
+  <div>
+    <label class="flex space-x-2">
+      <input
+        id="privacy-check-presupuesto"
+        type="checkbox"
+        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+      />
+      <span class="text-gray-700">
+        Acepto la
+        <a
+          href="/politica-de-privacidad"
+          class="text-blue-600 underline hover:text-blue-800"
+        >
+          política de privacidad</a
+        >
+        y el tratamiento de mis datos personales
+      </span></label
+    >
+  </div>
+  <div>
+    <button
+      type="submit"
+      id="submit-presupuesto"
+      disabled
+      class="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+    >
+      Enviar solicitud
+    </button>
+  </div>
+</form>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const checkbox = document.getElementById(
+      "privacy-check-presupuesto",
+    ) as HTMLInputElement;
+    const button = document.getElementById(
+      "submit-presupuesto",
+    ) as HTMLButtonElement;
+
+    if (checkbox && button) {
+      // Inicializa el estado del botón
+      button.disabled = !checkbox.checked;
+
+      // Escucha cambios
+      checkbox.addEventListener("change", () => {
+        button.disabled = !checkbox.checked;
+      });
+    }
+  });
+</script>

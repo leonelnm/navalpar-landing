@@ -1,0 +1,48 @@
+---
+import jsonData from "../data/data.json";
+import { icons } from "../data/icons";
+import ServicioCard from "./ui/ServicioCard.astro";
+
+const data = jsonData as Data;
+
+const { header, services } = data;
+const IconOtherServices = icons["home_repair_service"];
+---
+
+<main id="servicios" class="py-16 bg-white">
+  <div class="container mx-auto px-4 md:px-6">
+    <header class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        {header.title}
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        {header.description}
+      </p>
+    </header>
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((servicio) => <ServicioCard servicio={servicio} />)}
+      <article
+        class="bg-blue-50 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
+      >
+        <div
+          class="p-6 h-full flex flex-col justify-center items-center text-center"
+        >
+          <IconOtherServices class="text-blue-600 text-6xl mb-4" />
+          <h3 class="text-xl font-bold text-gray-800 mb-3">
+            ¿Necesitas otro servicio?
+          </h3>
+          <p class="text-gray-600 mb-6">
+            Contacta con nosotros para consultar por cualquier otro servicio de
+            mantenimiento que necesites.
+          </p>
+          <a
+            href="#contacto"
+            class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-md"
+          >
+            Contactar ahora
+          </a>
+        </div>
+      </article>
+    </section>
+  </div>
+</main>

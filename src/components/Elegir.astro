@@ -1,0 +1,26 @@
+---
+import jsonData from "../data/data.json";
+import LegendCard from "./ui/LegendCard.astro";
+
+const data = jsonData as Data;
+const { legends } = data;
+---
+
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        ¿Por qué elegirnos?
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Nos destacamos por nuestra profesionalidad, experiencia y compromiso con
+        la calidad en cada proyecto.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {legends.map((legend) => (
+        <LegendCard legend={legend} />
+      ))}
+    </div>
+  </div>
+</section>

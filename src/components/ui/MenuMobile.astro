@@ -1,0 +1,40 @@
+---
+const links = [
+  { href: "#inicio", text: "Inicio" },
+  { href: "#servicios", text: "Servicios" },
+  { href: "#contacto", text: "Contacto" },
+  { href: "#presupuesto", text: "Presupuesto" },
+];
+---
+
+<details id="mobile-menu" class="relative">
+  <summary class="list-none flex items-center cursor-pointer">
+    <span class="material-symbols-outlined text-gray-700 text-3xl">menu</span>
+  </summary>
+  <div
+    class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-50"
+  >
+    {
+      links.map((link) => (
+        <a
+          href={link.href}
+          class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+        >
+          {link.text}
+        </a>
+      ))
+    }
+  </div>
+</details>
+
+<script>
+  const details = document.getElementById("mobile-menu");
+  if (details) {
+    const links = details.querySelectorAll("a");
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        details.removeAttribute("open");
+      });
+    });
+  }
+</script>

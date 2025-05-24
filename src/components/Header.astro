@@ -1,0 +1,48 @@
+---
+import { icons } from "../data/icons";
+
+const PhoneIcon = icons["phone"];
+---
+
+<header class="w-full bg-white shadow-xs">
+  <div class="container mx-auto px-4 md:px-6 py-4">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center">
+        <div class="text-blue-600 font-bold text-2xl">
+          <span>Servicios</span>
+          <span class="text-gray-700">Navalpar</span>
+        </div>
+      </div>
+      <nav class="hidden md:flex space-x-8">
+        <a
+          href="#inicio"
+          class="text-gray-700 hover:text-blue-600 transition-colors duration-300"
+          >Inicio</a
+        >
+        <a
+          href="#servicios"
+          class="text-gray-700 hover:text-blue-600 transition-colors duration-300"
+          >Servicios</a
+        >
+        <a
+          href="#contacto"
+          class="text-gray-700 hover:text-blue-600 transition-colors duration-300"
+          >Contacto</a
+        >
+        <a
+          href="#presupuesto"
+          class="text-gray-700 hover:text-blue-600 transition-colors duration-300"
+          >Presupuesto</a
+        >
+      </nav>
+      <a
+        href="tel:123456"
+        class="bg-blue-600 text-white px-4 py-2 rounded flex items-center space-x-2 hover:bg-blue-700 transition-colors duration-300"
+      >
+        <!-- Ícono de teléfono -->
+        <span class="flex space-x-2 items-center">Llámanos</span>
+        <PhoneIcon width={20} height={20} />
+      </a>
+    </div>
+  </div>
+</header>
