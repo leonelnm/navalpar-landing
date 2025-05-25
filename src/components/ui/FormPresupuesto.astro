@@ -1,12 +1,19 @@
 ---
 import jsonData from "../../data/data.json";
+import Privacidad from "./Privacidad.astro";
+import TurnstileCloudfare from "./TurnstileCloudfare.astro";
 const data = jsonData as Data;
 
 const { services } = data;
 const servicesNames = services.map((service) => service.title).sort();
 ---
 
-<form id="form-presupuesto" class="space-y-6">
+<form
+  id="form-presupuesto"
+  class="space-y-6"
+  action="https://formsubmit.co/hello@codigo04.com"
+  method="POST"
+>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div>
       <label
@@ -17,6 +24,7 @@ const servicesNames = services.map((service) => service.title).sort();
       <input
         type="text"
         id="budget-name"
+        name="budget-name"
         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
         placeholder="Tu nombre"
       />
@@ -30,6 +38,7 @@ const servicesNames = services.map((service) => service.title).sort();
       <input
         type="email"
         id="budget-email"
+        name="budget-email"
         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
         placeholder="tucorreo@ejemplo.com"
         required
@@ -45,6 +54,7 @@ const servicesNames = services.map((service) => service.title).sort();
       <input
         type="tel"
         id="budget-phone"
+        name="budget-phone"
         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
         placeholder="123 456 789"
       />
@@ -57,6 +67,7 @@ const servicesNames = services.map((service) => service.title).sort();
       >
       <select
         id="budget-service"
+        name="budget-service"
         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
       >
         <option value="" disabled="" selected="">Selecciona un servicio</option>
@@ -77,6 +88,7 @@ const servicesNames = services.map((service) => service.title).sort();
     <input
       type="text"
       id="budget-address"
+      name="budget-address"
       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
       placeholder="Calle, número, código postal"
       required
@@ -90,7 +102,9 @@ const servicesNames = services.map((service) => service.title).sort();
     >
     <textarea
       id="budget-description"
-      rows="8"
+      name="budget-description"
+      rows="10"
+      maxlength="3000"
       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
       placeholder="Describe el trabajo que necesitas realizar..."
       required></textarea>
@@ -114,6 +128,8 @@ const servicesNames = services.map((service) => service.title).sort();
       </span></label
     >
   </div>
+
+  <TurnstileCloudfare id="presupuesto" />
   <div>
     <button
       type="submit"
@@ -135,14 +151,21 @@ const servicesNames = services.map((service) => service.title).sort();
       "submit-presupuesto",
     ) as HTMLButtonElement;
 
-    if (checkbox && button) {
-      // Inicializa el estado del botón
-      button.disabled = !checkbox.checked;
+    let turnstileValidated = false;
 
-      // Escucha cambios
-      checkbox.addEventListener("change", () => {
-        button.disabled = !checkbox.checked;
-      });
+    (window as any)["onTurnstileSuccess_presupuesto"] = (token: string) => {
+      turnstileValidated = true;
+      maybeEnableButton();
+    };
+
+    function maybeEnableButton(): void {
+      if (checkbox && button) {
+        button.disabled = !(checkbox.checked && turnstileValidated);
+      }
+    }
+
+    if (checkbox) {
+      checkbox.addEventListener("change", maybeEnableButton);
     }
   });
 </script>
