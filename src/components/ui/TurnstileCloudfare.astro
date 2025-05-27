@@ -1,18 +1,16 @@
 ---
 export interface Props {
-	id: string;
+  id: string;
 }
 const isDev = import.meta.env.DEV;
-const sitekey = isDev
-  ? "1x00000000000000000000AA"
-  : "0x4AAAAAABeg5LaudxgnRGDo";
+const sitekey = isDev ? "1x00000000000000000000AA" : "0x4AAAAAABeg5LaudxgnRGDo";
 const { id } = Astro.props;
 ---
 
 <div
   id={`turnstile-${id}`}
   class="cf-turnstile"
-  data-sitekey="1x00000000000000000000AA"
+  data-sitekey={sitekey}
   data-theme="light"
   data-callback={`onTurnstileSuccess_${id}`}
 >
