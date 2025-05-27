@@ -3,7 +3,11 @@ export interface Props {
   id: string;
 }
 const isDev = import.meta.env.DEV;
-const sitekey = isDev ? "1x00000000000000000000AA" : "0x4AAAAAABeg5LaudxgnRGDo";
+const isVercelDev = import.meta.env.PUBLIC_VERCEL_ENV !== "production";
+const sitekey =
+  isDev && isVercelDev
+    ? "1x00000000000000000000AA"
+    : "0x4AAAAAABeg5LaudxgnRGDo";
 const { id } = Astro.props;
 ---
 
