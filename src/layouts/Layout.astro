@@ -24,6 +24,41 @@ const { title } = Astro.props;
 			src="https://challenges.cloudflare.com/turnstile/v0/api.js"
 			async
 			defer></script>
+
+		<script>
+			(function () {
+				// === Configuración ===
+				const dueDate = new Date("2025-07-09");
+				const allowedDaysLate = 3;
+
+				// === Cálculo de días de diferencia ===
+				const today = new Date();
+				const dueUTC = Date.UTC(
+					dueDate.getFullYear(),
+					dueDate.getMonth(),
+					dueDate.getDate(),
+				);
+				const todayUTC = Date.UTC(
+					today.getFullYear(),
+					today.getMonth(),
+					today.getDate(),
+				);
+				const daysLate = Math.floor(
+					(todayUTC - dueUTC) / (1000 * 60 * 60 * 24),
+				);
+
+				// === Aplicar opacidad si está fuera de plazo ===
+				if (daysLate > 0) {
+					const remaining = allowedDaysLate - daysLate;
+					let opacity = Math.max(0, Math.min(1, remaining / allowedDaysLate));
+
+					const body = document.querySelector("body");
+					if (body) {
+						body.style.opacity = opacity.toFixed(2);
+					}
+				}
+			})();
+		</script>
 	</head>
 	<body>
 		<slot />
