@@ -4,9 +4,16 @@ import "../styles/global.css";
 export interface Props {
 	title: string;
 	description?: string;
+	image?: string;
 }
 
-const { title } = Astro.props;
+const {
+	title,
+	description = "Servicios Navalpar - Carpintería de madera a medida y mantenimiento en Valencia. Soluciones profesionales para tu hogar o negocio.",
+	image = "/og-image.jpg",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -16,49 +23,31 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>
-			{title}
-		</title>
+
+		<!-- SEO -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(image, Astro.url)} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL(image, Astro.url)} />
 
 		<script
+			is:inline
 			src="https://challenges.cloudflare.com/turnstile/v0/api.js"
 			async
 			defer></script>
-
-		<script>
-			(function () {
-				// === Configuración ===
-				const dueDate = new Date("2025-12-12");
-				const allowedDaysLate = 3;
-
-				// === Cálculo de días de diferencia ===
-				const today = new Date();
-				const dueUTC = Date.UTC(
-					dueDate.getFullYear(),
-					dueDate.getMonth(),
-					dueDate.getDate(),
-				);
-				const todayUTC = Date.UTC(
-					today.getFullYear(),
-					today.getMonth(),
-					today.getDate(),
-				);
-				const daysLate = Math.floor(
-					(todayUTC - dueUTC) / (1000 * 60 * 60 * 24),
-				);
-
-				// === Aplicar opacidad si está fuera de plazo ===
-				if (daysLate > 0) {
-					const remaining = allowedDaysLate - daysLate;
-					let opacity = Math.max(0, Math.min(1, remaining / allowedDaysLate));
-
-					const body = document.querySelector("body");
-					if (body) {
-						body.style.opacity = opacity.toFixed(2);
-					}
-				}
-			})();
-		</script>
 	</head>
 	<body>
 		<slot />
