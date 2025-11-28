@@ -1,11 +1,12 @@
 ---
 import { icons } from "../../data/icons";
+import { getData } from "../../data/data";
 
-const numerosTelefono = ["+34 600 123 456", "+34 600 789 012"];
 const PhoneIcon = icons["phone"];
 const MailIcon = icons["mail"];
 const LocationIcon = icons["location_on"];
 const ScheduleIcon = icons["schedule"];
+const { phoneNumbers: numerosTelefono, direction, workingHours } = getData();
 ---
 
 <div class="bg-blue-50 rounded-xl shadow-md p-8">
@@ -15,10 +16,7 @@ const ScheduleIcon = icons["schedule"];
       <PhoneIcon class="text-blue-600 mr-3 mt-1" />
       <div>
         <p class="font-medium text-gray-800">Teléfono</p>
-        {numerosTelefono.map((numero) => (
-          <p class="text-gray-600">{numero}</p>
-        ))}
-        
+        {numerosTelefono.map((numero) => <p class="text-gray-600">{numero}</p>)}
       </div>
     </div>
     <div class="flex items-start">
@@ -26,23 +24,25 @@ const ScheduleIcon = icons["schedule"];
 
       <div>
         <p class="font-medium text-gray-800">Email</p>
-        <p class="text-gray-600">info@serviciosnavalpar.es</p>
+        <p class="text-gray-600">contacto@serviciosnavalpar.es</p>
       </div>
     </div>
     <div class="flex items-start">
       <LocationIcon class="text-blue-600 mr-3 mt-1" />
       <div>
         <p class="font-medium text-gray-800">Dirección</p>
-        <p class="text-gray-600">Calle Principal 123, 46001 Valencia, España</p>
+        <p class="text-gray-600">
+          {direction}
+        </p>
       </div>
     </div>
     <div class="flex items-start">
       <ScheduleIcon class="text-blue-600 mr-3 mt-1" />
       <div>
         <p class="font-medium text-gray-800">Horario</p>
-        <p class="text-gray-600">
-          Lunes a Viernes: 9:00 - 19:00<br />Sábado: 10:00 - 14:00
-        </p>
+        <ul class="text-gray-600">
+          {workingHours.map((hour) => <li>{hour}</li>)}
+        </ul>
       </div>
     </div>
   </div>

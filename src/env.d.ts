@@ -36,4 +36,7 @@ type Data = {
   header: Header;
   services: Service[];
   legends: Legend[];
+  phoneNumbers: string[];
+  direction: string;
+  workingHours: string[];
 }

@@ -1,7 +1,13 @@
 ---
+import { getData } from "../data/data";
 import { icons } from "../data/icons";
 
 const PhoneIcon = icons["phone"];
+const { phoneNumbers } = getData();
+
+const numbersFormatted = phoneNumbers.map((number) =>
+  number.replace(/\s+/g, ""),
+);
 ---
 
 <header class="sticky top-0 z-50 w-full bg-white shadow-md">
@@ -9,8 +15,8 @@ const PhoneIcon = icons["phone"];
     <div class="flex justify-between items-center">
       <div class="flex items-center">
         <div class="text-blue-600 font-bold text-2xl">
-          <span>Servicios</span>
-          <span class="text-gray-700">Navalpar</span>
+          <span class="text-gray-700">Servicios</span>
+          <span>Navalpar</span>
         </div>
       </div>
       <nav class="hidden md:flex space-x-8">
@@ -36,7 +42,7 @@ const PhoneIcon = icons["phone"];
         >
       </nav>
       <a
-        href="tel:123456"
+        href={`tel:${numbersFormatted[0]}`}
         class="bg-blue-600 text-white px-4 py-2 rounded flex items-center space-x-2 hover:bg-blue-700 transition-colors duration-300"
       >
         <!-- Ícono de teléfono -->
