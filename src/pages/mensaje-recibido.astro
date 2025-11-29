@@ -1,0 +1,60 @@
+---
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Mensaje Recibido | Navalpar">
+    <Header absolute={true} />
+    <main class="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+        <div
+            class="max-w-md w-full bg-white rounded-xl shadow-lg p-8 text-center"
+        >
+            <div
+                class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-8 w-8 text-green-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+
+            <h1 class="text-2xl font-bold text-gray-900 mb-4">
+                ¡Mensaje Recibido!
+            </h1>
+
+            <p class="text-gray-600 mb-8" id="success-message">
+                Gracias por contactarnos. Hemos recibido tu mensaje
+                correctamente y te responderemos lo antes posible.
+            </p>
+
+            <a
+                href="/"
+                class="inline-block w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            >
+                Volver al inicio
+            </a>
+        </div>
+    </main>
+</Layout>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const messageElement = document.getElementById("success-message");
+        const userName = sessionStorage.getItem("form_user_name");
+
+        if (messageElement && userName) {
+            messageElement.innerHTML = `Gracias <b>${userName}</b>, hemos recibido tu mensaje correctamente. Te responderemos lo antes posible.`;
+            // Optional: Clear the name from storage after showing it
+            sessionStorage.removeItem("form_user_name");
+        }
+    });
+</script>
