@@ -1,11 +1,11 @@
 ---
-import { getData } from "../data/data";
+import { companyInfo } from "../data/data";
 import { icons } from "../data/icons";
 
 const { absolute = false } = Astro.props;
 
 const PhoneIcon = icons["phone"];
-const { phoneNumbers } = getData();
+const { phoneNumbers } = companyInfo();
 
 const numbersFormatted = phoneNumbers.map((number) =>
   number.replace(/\s+/g, ""),

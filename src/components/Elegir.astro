@@ -1,8 +1,8 @@
 ---
-import { getData } from "../data/data";
+import { legends as getLegends } from "../data/data";
 import LegendCard from "./ui/LegendCard.astro";
 
-const { legends } = getData();
+const legends = getLegends();
 ---
 
 <section class="py-16 bg-gray-50">

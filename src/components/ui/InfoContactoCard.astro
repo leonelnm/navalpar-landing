@@ -1,12 +1,17 @@
 ---
 import { icons } from "../../data/icons";
-import { getData } from "../../data/data";
+import { companyInfo } from "../../data/data";
 
 const PhoneIcon = icons["phone"];
 const MailIcon = icons["mail"];
 const LocationIcon = icons["location_on"];
 const ScheduleIcon = icons["schedule"];
-const { phoneNumbers: numerosTelefono, direction, workingHours } = getData();
+const {
+  phoneNumbers: numerosTelefono,
+  address,
+  workingHours,
+  email,
+} = companyInfo();
 ---
 
 <div class="bg-blue-50 rounded-xl shadow-md p-8">
@@ -24,7 +29,7 @@ const { phoneNumbers: numerosTelefono, direction, workingHours } = getData();
 
       <div>
         <p class="font-medium text-gray-800">Email</p>
-        <p class="text-gray-600">contacto@serviciosnavalpar.es</p>
+        <p class="text-gray-600">{email}</p>
       </div>
     </div>
     <div class="flex items-start">
@@ -32,7 +37,7 @@ const { phoneNumbers: numerosTelefono, direction, workingHours } = getData();
       <div>
         <p class="font-medium text-gray-800">Dirección</p>
         <p class="text-gray-600">
-          {direction}
+          {address}
         </p>
       </div>
     </div>

@@ -1,3 +1,26 @@
+type CompanyInfo = {
+  name: string;
+  cif: string;
+  address: string;
+  email: string;
+  phoneNumbers: string[];
+  workingHours: string[];
+  socialObject: string[];
+  activity: string;
+}
+
+type SeoInfo = {
+  title: string;
+  description: string;
+}
+
+type Seo = {
+  default: SeoInfo;
+  index: SeoInfo;
+  privacy: SeoInfo;
+  legal: SeoInfo;
+}
+
 type Service = {
   title: string;
   description: string;
@@ -33,10 +56,9 @@ type Legend = {
 }
 
 type Data = {
+  companyInfo: CompanyInfo;
+  seo: Seo;
   header: Header;
   services: Service[];
   legends: Legend[];
-  phoneNumbers: string[];
-  direction: string;
-  workingHours: string[];
 }

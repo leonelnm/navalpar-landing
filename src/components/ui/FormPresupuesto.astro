@@ -1,6 +1,6 @@
 ---
-import { getData } from "../../data/data";
-const { services } = getData();
+import { services as getServices } from "../../data/data";
+const services = getServices();
 const servicesNames = services.map((service) => service.title).sort();
 ---
 
@@ -132,7 +132,7 @@ const servicesNames = services.map((service) => service.title).sort();
   />
   <input type="hidden" name="_next" id="next-presupuesto" value="" />
   <input type="hidden" name="_template" value="table" />
-  <div>
+  <div class="flex justify-end">
     <button
       type="submit"
       id="submit-presupuesto"

@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { seo } from "../data/data";
 
 export interface Props {
 	title: string;
@@ -7,9 +8,11 @@ export interface Props {
 	image?: string;
 }
 
+const defaultSeo = seo().default;
+
 const {
 	title,
-	description = "Servicios Navalpar - Carpintería de madera a medida y mantenimiento en Valencia. Soluciones profesionales para tu hogar o negocio.",
+	description = defaultSeo.description,
 	image = "/og-image.jpg",
 } = Astro.props;
 

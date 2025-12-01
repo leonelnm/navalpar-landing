@@ -1,4 +1,41 @@
 {
+  "companyInfo": {
+    "name": "Servicios Navalpar SL",
+    "cif": "B97215982",
+    "address": "Calle Virgen de la Cabeza 6, bajo D, 46014, Valencia",
+    "email": "contacto@serviciosnavalpar.es",
+    "phoneNumbers": [
+      "963 788 155",
+      "629 434 062"
+    ],
+    "workingHours": [
+      "Lunes a Viernes: 9:00 - 19:00",
+      "Sábados: 10:00 - 14:00"
+    ],
+    "socialObject": [
+      "Reformas de albañilería y pequeños trabajos de construcción en general",
+      "Instalaciones eléctricas y de fontanería en general"
+    ],
+    "activity": "Construcción, reparación, y conservación de toda clase de obras"
+  },
+  "seo": {
+    "default": {
+      "title": "Servicios Navalpar | Soluciones Integrales para tu Hogar",
+      "description": "Servicios Navalpar: Soluciones integrales para tu hogar o negocio en Valencia. Expertos en gestión de incidencias de seguros y reformas de fontanería, albañilería, pintura, carpintería y electricidad."
+    },
+    "index": {
+      "title": "Servicios Navalpar | Reparaciones de Seguros de Hogar y Reformas en Valencia",
+      "description": "Especialistas en solucionar incidencias para seguros de hogar en Valencia. Ofrecemos servicios rápidos y profesionales de fontanería, albañilería, pintura y más. También realizamos reformas particulares."
+    },
+    "privacy": {
+      "title": "Política de privacidad | Servicios Navalpar",
+      "description": "Conoce nuestra política de privacidad y cómo protegemos tus datos personales en Servicios Navalpar. Cumplimos con el RGPD y garantizamos la seguridad de tu información."
+    },
+    "legal": {
+      "title": "Aviso Legal | Servicios Navalpar",
+      "description": "Aviso legal de Servicios Navalpar, cumpliendo con la LSSI-CE y otras normativas aplicables. Información sobre titularidad, propiedad intelectual y responsabilidad."
+    }
+  },
   "header": {
     "title": "Nuestros Servicios",
     "description": "Ofrecemos soluciones integrales para el mantenimiento y mejora de tu hogar o negocio en Valencia."
@@ -56,15 +93,5 @@
       "iconName": "electric_bolt",
       "imageUrl": "/img/electr.webp"
     }
-  ],
-  "phoneNumbers": [
-    "963 788 155",
-    "629 434 062"
-  ],
-  "direction": "Calle Virgen de la Cabeza 6, bajo D, 46014, Valencia",
-  "email": "contacto@serviciosnavalpar.es",
-  "workingHours": [
-    "Lunes a Viernes: 9:00 - 19:00",
-    "Sábados: 10:00 - 14:00"
   ]
 }

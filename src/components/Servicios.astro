@@ -1,9 +1,10 @@
 ---
-import { getData } from "../data/data";
+import { header as getHeader, services as getServices } from "../data/data";
 import { icons } from "../data/icons";
 import ServicioCard from "./ui/ServicioCard.astro";
 
-const { header, services } = getData();
+const header = getHeader();
+const services = getServices();
 const IconOtherServices = icons["home_repair_service"];
 ---
 
