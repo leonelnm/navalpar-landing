@@ -1,0 +1,23 @@
+---
+import { legends } from "../../data/data";
+import LegendCard from "./ui/LegendCard.astro";
+
+const legendsData = legends();
+---
+
+<section class="py-20 bg-white border-b border-slate-200">
+    <div class="container mx-auto px-4 md:px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">
+                ¿Por qué elegirnos?
+            </h2>
+            <p class="text-slate-600 max-w-2xl mx-auto">
+                Nos esforzamos por ofrecer el mejor servicio posible en cada
+                proyecto.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {legendsData.map((legend) => <LegendCard legend={legend} />)}
+        </div>
+    </div>
+</section>

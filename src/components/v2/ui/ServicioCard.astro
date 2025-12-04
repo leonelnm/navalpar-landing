@@ -1,0 +1,32 @@
+---
+import { icons } from "../../../data/icons";
+
+interface Props {
+    servicio: {
+        iconName: string;
+        title: string;
+        description: string;
+    };
+}
+
+const { servicio } = Astro.props;
+const Icon = icons[servicio.iconName] || icons["home_repair_service"];
+---
+
+<article
+    class="group bg-white p-8 border border-slate-200 hover:border-blue-600 transition-colors duration-200"
+>
+    <div
+        class="w-12 h-12 bg-blue-50 flex items-center justify-center text-blue-600 mb-6 rounded-sm group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200"
+    >
+        <Icon class="w-6 h-6" />
+    </div>
+    <h3
+        class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors"
+    >
+        {servicio.title}
+    </h3>
+    <p class="text-slate-600 leading-relaxed">
+        {servicio.description}
+    </p>
+</article>

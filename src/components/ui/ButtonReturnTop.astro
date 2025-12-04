@@ -1,9 +1,28 @@
+---
+interface Props {
+  variant?: "blue" | "orange";
+}
+
+const { variant = "blue" } = Astro.props;
+
+const variants = {
+  blue: "bg-blue-600 hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-800",
+  orange:
+    "bg-orange-600 hover:bg-orange-700 focus:bg-orange-700 active:bg-orange-800",
+};
+
+const colorClasses = variants[variant];
+---
+
 <!-- Back to top button -->
 <button
   type="button"
   data-twe-ripple-init
   data-twe-ripple-color="light"
-  class="fixed! bottom-5 end-5 sm:bottom-10 sm:end-10 hidden rounded-full bg-blue-600 p-4 sm:p-7 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-hidden focus:ring-0 active:bg-blue-800 active:shadow-lg md:opacity-50 hover:md:opacity-100"
+  class:list={[
+    "fixed! bottom-5 end-5 sm:bottom-10 sm:end-10 hidden rounded-full p-4 sm:p-7 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-hidden focus:ring-0 active:shadow-lg md:opacity-50 hover:md:opacity-100",
+    colorClasses,
+  ]}
   id="btn-back-to-top"
 >
   <span class="[&>svg]:w-4">
@@ -31,7 +50,7 @@
     const toggleVisibility = () => {
       const scrollTop =
         document.documentElement.scrollTop || document.body.scrollTop;
-      
+
       button.classList.toggle("hidden", scrollTop <= SCROLL_THRESHOLD);
     };
 

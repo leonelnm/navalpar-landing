@@ -23,7 +23,7 @@ const {
     <div class="space-y-8">
         <div class="flex items-start group">
             <div
-                class="w-12 h-12 bg-slate-900 border border-slate-700 flex items-center justify-center text-orange-500 mr-5 group-hover:border-orange-500 group-hover:text-white group-hover:bg-orange-600 transition-all duration-300"
+                class="w-12 h-12 bg-slate-900 border border-slate-700 flex items-center justify-center text-orange-500 mr-5 group-hover:border-orange-500 group-hover:text-white group-hover:bg-orange-600 transition-all duration-300 shrink-0"
             >
                 <PhoneIcon class="w-6 h-6" />
             </div>
@@ -43,7 +43,7 @@ const {
 
         <div class="flex items-start group">
             <div
-                class="w-12 h-12 bg-slate-900 border border-slate-700 flex items-center justify-center text-orange-500 mr-5 group-hover:border-orange-500 group-hover:text-white group-hover:bg-orange-600 transition-all duration-300"
+                class="w-12 h-12 bg-slate-900 border border-slate-700 flex items-center justify-center text-orange-500 mr-5 group-hover:border-orange-500 group-hover:text-white group-hover:bg-orange-600 transition-all duration-300 shrink-0"
             >
                 <MailIcon class="w-6 h-6" />
             </div>
@@ -59,25 +59,7 @@ const {
 
         <div class="flex items-start group">
             <div
-                class="w-12 h-12 bg-slate-900 border border-slate-700 flex items-center justify-center text-orange-500 mr-5 group-hover:border-orange-500 group-hover:text-white group-hover:bg-orange-600 transition-all duration-300"
-            >
-                <LocationIcon class="w-6 h-6" />
-            </div>
-            <div>
-                <p
-                    class="font-bold text-white mb-1 uppercase tracking-wider text-sm"
-                >
-                    Dirección
-                </p>
-                <p class="text-slate-400">
-                    {address}
-                </p>
-            </div>
-        </div>
-
-        <div class="flex items-start group">
-            <div
-                class="w-12 h-12 bg-slate-900 border border-slate-700 flex items-center justify-center text-orange-500 mr-5 group-hover:border-orange-500 group-hover:text-white group-hover:bg-orange-600 transition-all duration-300"
+                class="w-12 h-12 bg-slate-900 border border-slate-700 flex items-center justify-center text-orange-500 mr-5 group-hover:border-orange-500 group-hover:text-white group-hover:bg-orange-600 transition-all duration-300 shrink-0"
             >
                 <ScheduleIcon class="w-6 h-6" />
             </div>
@@ -90,6 +72,24 @@ const {
                 <ul class="text-slate-400">
                     {workingHours.map((hour) => <li>{hour}</li>)}
                 </ul>
+            </div>
+        </div>
+
+        <div class="flex items-start group">
+            <div
+                class="w-12 h-12 bg-slate-900 border border-slate-700 flex items-center justify-center text-orange-500 mr-5 group-hover:border-orange-500 group-hover:text-white group-hover:bg-orange-600 transition-all duration-300 shrink-0"
+            >
+                <LocationIcon class="w-6 h-6" />
+            </div>
+            <div>
+                <p
+                    class="font-bold text-white mb-1 uppercase tracking-wider text-sm"
+                >
+                    Dirección
+                </p>
+                <p class="text-slate-400">
+                    {address}
+                </p>
             </div>
         </div>
     </div>
