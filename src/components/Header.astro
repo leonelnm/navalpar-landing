@@ -1,6 +1,7 @@
 ---
 import { companyInfo } from "../data/data";
 import { icons } from "../data/icons";
+import Button from "./ui/Button.astro";
 
 const { absolute = false } = Astro.props;
 
@@ -12,48 +13,66 @@ const numbersFormatted = phoneNumbers.map((number) =>
 );
 ---
 
-<header class="sticky top-0 z-50 w-full bg-white shadow-md">
-  <div class="container mx-auto px-4 md:px-6 py-4">
-    <div class="flex justify-between items-center">
-      <div class="flex items-center">
-        <a
-          href={absolute ? "/" : "#inicio"}
-          class="text-blue-600 font-bold text-2xl"
+<header class="sticky top-0 z-50 w-full bg-white border-b border-slate-200">
+  <div
+    class="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between"
+  >
+    <div class="flex items-center">
+      <a
+        href={absolute ? "/" : "#inicio"}
+        class="text-blue-600 font-black text-2xl tracking-tight flex items-center gap-2"
+      >
+        <div
+          class="w-8 h-8 bg-blue-600 text-white flex items-center justify-center rounded-sm"
         >
-          <span class="text-gray-700">Servicios</span>
-          <span>Navalpar</span>
-        </a>
-      </div>
-      <nav class="hidden md:flex space-x-8">
-        <a
-          href={absolute ? "/#inicio" : "#inicio"}
-          class="text-gray-700 hover:text-blue-600 transition-colors duration-300"
-          >Inicio</a
-        >
-        <a
-          href={absolute ? "/#servicios" : "#servicios"}
-          class="text-gray-700 hover:text-blue-600 transition-colors duration-300"
-          >Servicios</a
-        >
-        <a
-          href={absolute ? "/#contacto" : "#contacto"}
-          class="text-gray-700 hover:text-blue-600 transition-colors duration-300"
-          >Contacto</a
-        >
-        <a
-          href={absolute ? "/#presupuesto" : "#presupuesto"}
-          class="text-gray-700 hover:text-blue-600 transition-colors duration-300"
-          >Presupuesto</a
-        >
-      </nav>
+          <span class="text-lg">N</span>
+        </div>
+        <div class="flex flex-col">
+          <span
+            class="text-xs text-slate-500 font-bold uppercase tracking-wider leading-none mb-0.5"
+            >Servicios</span
+          >
+          <span class="text-slate-900 leading-none">Navalpar</span>
+        </div>
+      </a>
+    </div>
+    <nav class="hidden md:flex space-x-8">
+      <a
+        href={absolute ? "/#inicio" : "#inicio"}
+        class="text-slate-600 font-medium hover:text-blue-600 transition-colors"
+        >Inicio</a
+      >
+      <a
+        href={absolute ? "/#servicios" : "#servicios"}
+        class="text-slate-600 font-medium hover:text-blue-600 transition-colors"
+        >Servicios</a
+      >
+      <a
+        href={absolute ? "/#contacto" : "#contacto"}
+        class="text-slate-600 font-medium hover:text-blue-600 transition-colors"
+        >Contacto</a
+      >
+      <a
+        href={absolute ? "/#presupuesto" : "#presupuesto"}
+        class="text-slate-600 font-medium hover:text-blue-600 transition-colors"
+        >Presupuesto</a
+      >
+    </nav>
+    <div class="flex items-center gap-4">
       <a
         href={`tel:${numbersFormatted[0]}`}
-        class="bg-blue-600 text-white px-4 py-2 rounded flex items-center space-x-2 hover:bg-blue-700 transition-colors duration-300"
+        class="hidden lg:flex items-center gap-2 text-slate-700 font-semibold hover:text-blue-600 transition-colors"
       >
-        <!-- Ícono de teléfono -->
-        <span class="flex space-x-2 items-center">Llámanos</span>
-        <PhoneIcon width={20} height={20} />
+        <PhoneIcon class="w-5 h-5" />
+        <span>{phoneNumbers[0]}</span>
       </a>
+      <Button
+        href="#presupuesto"
+        variant="primary"
+        class="hidden sm:inline-flex"
+      >
+        Pedir Presupuesto
+      </Button>
     </div>
   </div>
 </header>
