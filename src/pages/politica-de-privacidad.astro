@@ -1,11 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { companyInfo, seo } from "../data/data";
+
+const { name, cif, address, email } = companyInfo();
+const { title, description } = seo().privacy;
 ---
 
-<Layout
-  title="Política de privacida | Servicios Navalpar"
-  description="Conoce nuestra política de privacidad y cómo protegemos tus datos personales en Servicios Navalpar. Cumplimos con el RGPD y garantizamos la seguridad de tu información."
->
+<Layout title={title} description={description}>
   <main class="max-w-3xl mx-auto px-4 py-12 text-gray-800">
     <header class="mb-8 text-center">
       <a
@@ -18,19 +19,20 @@ import Layout from "../layouts/Layout.astro";
     <h1 class="text-3xl font-bold mb-6">Política de Privacidad</h1>
 
     <p class="mb-4">
-      En <strong>Servicios Navalpar</strong>, nos comprometemos a proteger tu
-      privacidad y garantizar el tratamiento confidencial de tus datos
-      personales conforme a lo establecido en el Reglamento General de
-      Protección de Datos (RGPD) y otras leyes aplicables.
+      En <strong>{name}</strong>, nos comprometemos a proteger tu privacidad y
+      garantizar el tratamiento confidencial de tus datos personales conforme a
+      lo establecido en el Reglamento General de Protección de Datos (RGPD) y
+      otras leyes aplicables.
     </p>
 
     <h2 class="text-2xl font-semibold mt-8 mb-4">
       Responsable del tratamiento
     </h2>
     <p class="mb-4">
-      Servicios Navalpar<br />
-      Email: contacto@serviciosnavalpar.com<br />
-      Dirección: XXXXX
+      {name}<br />
+      CIF: {cif}<br />
+      Email: {email}<br />
+      Dirección: {address}
     </p>
 
     <h2 class="text-2xl font-semibold mt-8 mb-4">Datos que recopilamos</h2>
@@ -75,9 +77,8 @@ import Layout from "../layouts/Layout.astro";
       <li>Limitación del tratamiento</li>
     </ul>
     <p class="mb-4">
-      Para ejercer estos derechos, escríbenos a <strong
-        >contacto@serviciosnavalpar.com</strong
-      > con el asunto “Protección de Datos”.
+      Para ejercer estos derechos, escríbenos a <strong>{email}</strong> con el asunto
+      “Protección de Datos”.
     </p>
 
     <h2 class="text-2xl font-semibold mt-8 mb-4">Cambios en la política</h2>

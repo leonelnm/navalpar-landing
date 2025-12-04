@@ -1,8 +1,11 @@
 ---
 import Main from "../components/Main.astro";
 import Layout from "../layouts/Layout.astro";
+import { seo } from "../data/data";
+
+const { title, description } = seo().index;
 ---
 
-<Layout title="Servicios Navalpar | carpintería de madera a medida en Valencia">
+<Layout title={title} description={description}>
 	<Main />
 </Layout>

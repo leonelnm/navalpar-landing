@@ -1,11 +1,10 @@
 ---
-import jsonData from "../data/data.json";
+import { header as getHeader, services as getServices } from "../data/data";
 import { icons } from "../data/icons";
 import ServicioCard from "./ui/ServicioCard.astro";
 
-const data = jsonData as Data;
-
-const { header, services } = data;
+const header = getHeader();
+const services = getServices();
 const IconOtherServices = icons["home_repair_service"];
 ---
 

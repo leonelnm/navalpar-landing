@@ -1,9 +1,8 @@
 ---
-import jsonData from "../data/data.json";
+import { legends as getLegends } from "../data/data";
 import LegendCard from "./ui/LegendCard.astro";
 
-const data = jsonData as Data;
-const { legends } = data;
+const legends = getLegends();
 ---
 
 <section class="py-16 bg-gray-50">
@@ -18,9 +17,7 @@ const { legends } = data;
       </p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {legends.map((legend) => (
-        <LegendCard legend={legend} />
-      ))}
+      {legends.map((legend) => <LegendCard legend={legend} />)}
     </div>
   </div>
 </section>
