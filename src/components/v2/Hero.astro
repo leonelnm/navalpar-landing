@@ -4,45 +4,90 @@ import Button from "./ui/Button.astro";
 
 <section
     id="inicio"
-    class="bg-slate-50 py-20 md:py-32 border-b border-slate-200"
+    class="min-h-screen flex items-center bg-slate-900 md:bg-white relative overflow-hidden"
 >
-    <div class="container mx-auto px-4 md:px-6">
-        <div class="flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2 space-y-8">
-                <h1
-                    class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-tight"
+    <!-- Mobile Background -->
+    <div class="absolute inset-0 z-0 md:hidden bg-blue-900">
+        <img
+            src="/img/obrero.webp"
+            alt="Reformas Navalpar"
+            class="w-full h-full object-cover grayscale contrast-125 mix-blend-multiply opacity-80"
+        />
+    </div>
+
+    <!-- Split Background (Desktop Only) -->
+    <div
+        class="hidden md:block absolute top-0 right-0 w-1/2 h-full bg-slate-900 z-0"
+    >
+    </div>
+    <div class="bf-container relative
+z-10 w-full py-12 md:py-0">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-0
+items-center">
+            <!-- Left Content -->
+            <div class="pr-0 md:pr-12 text-left
+order-1">
+                <div
+                    class="inline-block bg-blue-600 text-white text-xs font-bold
+uppercase tracking-widest px-3 py-1 mb-6"
                 >
-                    Soluciones Integrales para tu <span class="text-blue-600"
-                        >Hogar</span
-                    >
+                    Reformas Integrales
+                </div>
+                <h1
+                    class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white md:text-slate-900 leading-[0.9] mb-6 tracking-tighter"
+                >
+                    SOLIDEZ <br />
+                    <span class="text-blue-600">TOTAL.</span>
                 </h1>
-                <p class="text-xl text-slate-600 leading-relaxed max-w-lg">
-                    Expertos en fontanería, albañilería, electricidad y
-                    reformas. Calidad y profesionalidad garantizada en cada
-                    proyecto.
+                <p
+                    class="text-lg text-slate-200 md:text-slate-600 font-bold max-w-md mb-8 leading-tight"
+                >
+                    Construcción, fontanería y electricidad. Sin rodeos. Calidad
+                    garantizada.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <Button href="#presupuesto" variant="primary">
-                        Solicitar Presupuesto
+                <div class="flex flex-col sm:flex-row
+gap-4">
+                    <Button
+                        href="#presupuesto"
+                        variant="primary"
+                        class="w-full sm:w-auto"
+                    >
+                        Pedir Presupuesto
                     </Button>
-                    <Button href="#servicios" variant="outline">
-                        Ver Servicios
+                    <Button
+                        href="#servicios"
+                        variant="outline"
+                        class="w-full sm:w-auto"
+                    >
+                        Servicios
                     </Button>
                 </div>
             </div>
-            <div class="md:w-1/2 relative">
+            <!-- Right Content
+-->
+            <div
+                class="hidden md:flex relative mt-12 md:mt-0 h-[300px] md:h-full md:min-h-[600px] items-center justify-center order-2 bg-slate-900 md:bg-transparent -mx-6 md:mx-0 px-6 md:px-0 py-12 md:py-0"
+            >
                 <div
-                    class="relative z-10 bg-white p-4 border border-slate-200 rounded-sm"
+                    class="relative z-10 w-full max-w-xs
+md:max-w-md aspect-square bg-blue-600 p-2 md:p-4"
                 >
                     <img
                         src="/img/obrero.webp"
-                        alt="Reformas y servicios"
-                        class="w-full h-auto object-cover rounded-sm aspect-[4/3]"
+                        alt="Reformas Navalpar"
+                        class="w-full h-full object-cover grayscale contrast-125
+mix-blend-multiply opacity-80"
                     />
-                </div>
-                <div
-                    class="absolute -bottom-6 -right-6 w-full h-full bg-blue-100 rounded-sm -z-0"
-                >
+                    <div
+                        class="absolute -bottom-3 -left-3
+md:-bottom-4 md:-left-4 w-16 h-16 md:w-24 md:h-24 bg-white z-20"
+                    >
+                    </div>
+                    <div
+                        class="absolute -top-3 -right-3 md:-top-4 md:-right-4 w-16 h-16 md:w-24 md:h-24
+border-4 border-white z-20"
+                    >
+                    </div>
                 </div>
             </div>
         </div>

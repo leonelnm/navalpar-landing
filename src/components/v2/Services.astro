@@ -1,48 +1,40 @@
 ---
-import { header as getHeader, services as getServices } from "../../data/data";
+import { services } from "../../data/data";
 import { icons } from "../../data/icons";
 import ServicioCard from "./ui/ServicioCard.astro";
 
-const header = getHeader();
-const services = getServices();
-const IconOtherServices = icons["home_repair_service"];
+const servicesData = services();
 ---
 
-<section id="servicios" class="py-20 bg-slate-50 border-b border-slate-200">
-    <div class="container mx-auto px-4 md:px-6">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                {header.title}
+<section id="servicios" class="py-16 md:py-32 bg-slate-900 text-white">
+    <div class="bf-container">
+        <div
+            class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 border-b-4 border-white pb-6 md:pb-8 gap-6 md:gap-0"
+        >
+            <h2
+                class="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none"
+            >
+                Nuestros <br />
+                <span class="text-blue-600">Servicios</span>
             </h2>
-            <p class="text-lg text-slate-600">
-                {header.description}
+            <p
+                class="text-lg md:text-xl font-bold text-slate-400 max-w-md text-left md:text-right"
+            >
+                Soluciones técnicas ejecutadas con precisión.
             </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((servicio) => <ServicioCard servicio={servicio} />)}
-
-            <article
-                class="group bg-white p-8 border border-slate-200 hover:border-blue-600 transition-all duration-200 flex flex-col items-center justify-center text-center"
-            >
-                <div
-                    class="w-14 h-14 bg-slate-100 rounded-sm flex items-center justify-center text-slate-400 group-hover:text-blue-600 mb-4 transition-colors"
-                >
-                    <IconOtherServices class="w-8 h-8" />
-                </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-2">
-                    ¿Otro servicio?
-                </h3>
-                <p class="text-slate-600 mb-6 text-sm">
-                    Consultanos por cualquier necesidad específica.
-                </p>
-                <a
-                    href="#contacto"
-                    class="text-blue-600 font-bold hover:text-blue-800 hover:underline"
-                >
-                    Contactar ahora &rarr;
-                </a>
-            </article>
+            {
+                servicesData.map((service, index) => (
+                    <ServicioCard
+                        title={service.title}
+                        description={service.description}
+                        iconName={service.iconName}
+                        index={index + 1}
+                    />
+                ))
+            }
         </div>
     </div>
 </section>

@@ -1,34 +1,68 @@
-/* Version 2: Flat Design Styles */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+/* Version 2: Bold Flat Design Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 @import "tailwindcss";
 
-body {
-    font-family: 'Inter', sans-serif;
-    @apply bg-slate-50 text-slate-800;
+@theme {
+    --font-bold-flat: 'Inter', sans-serif;
+
+    --color-bf-bg: #ffffff;
+    --color-bf-bg-alt: #f1f5f9;
+    /* Slate 100 */
+    --color-bf-bg-dark: #0f172a;
+    /* Slate 900 */
+
+    --color-bf-text: #0f172a;
+    --color-bf-text-inv: #ffffff;
+
+    --color-bf-primary: #2563eb;
+    /* Blue 600 */
+    --color-bf-primary-dark: #1d4ed8;
+    /* Blue 700 */
+
+    --color-bf-accent: #059669;
+    /* Emerald 600 */
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    @apply font-bold tracking-tight text-slate-900;
+@layer base {
+    body {
+        @apply bg-[var(--color-bf-bg)] text-[var(--color-bf-text)] font-[family-name:--font-bold-flat] antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-black tracking-tighter text-[var(--color-bf-text)];
+    }
 }
 
-/* Flat Design Utilities */
-.flat-shadow {
-    box-shadow: none !important;
-}
+@layer components {
+    .bf-container {
+        @apply container mx-auto px-6 md:px-12 max-w-7xl;
+    }
 
-.flat-border {
-    @apply border border-slate-200;
-}
+    /* Bold Flat Button */
+    .bf-button-primary {
+        @apply inline-flex items-center justify-center px-8 py-4 text-base font-bold uppercase tracking-wider text-white bg-[var(--color-bf-primary)] hover:bg-[var(--color-bf-primary-dark)] transition-colors duration-200 rounded-none border-2 border-transparent;
+    }
 
-/* Remove default focus rings and replace with solid border change */
-input:focus,
-textarea:focus,
-select:focus,
-button:focus {
-    @apply outline-none ring-0 border-blue-600;
+    .bf-button-outline {
+        @apply inline-flex items-center justify-center px-8 py-4 text-base font-bold uppercase tracking-wider text-[var(--color-bf-primary)] border-2 border-[var(--color-bf-primary)] hover:bg-[var(--color-bf-primary)] hover:text-white transition-colors duration-200 rounded-none bg-transparent;
+    }
+
+    /* Bold Flat Card */
+    .bf-card {
+        @apply bg-white border-2 border-slate-200 p-8 hover:border-[var(--color-bf-primary)] transition-colors duration-200 rounded-none;
+    }
+
+    .bf-card-dark {
+        @apply bg-[var(--color-bf-bg-dark)] text-white p-8 rounded-none;
+    }
+
+    /* Bold Flat Input */
+    .bf-input {
+        @apply w-full px-4 py-3 bg-slate-50 border-2 border-slate-200 focus:border-[var(--color-bf-primary)] outline-none transition-colors rounded-none placeholder:text-slate-400 font-bold text-slate-900;
+    }
 }

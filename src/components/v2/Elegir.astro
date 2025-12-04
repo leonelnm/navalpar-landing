@@ -5,19 +5,38 @@ import LegendCard from "./ui/LegendCard.astro";
 const legendsData = legends();
 ---
 
-<section class="py-20 bg-white border-b border-slate-200">
-    <div class="container mx-auto px-4 md:px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-900 mb-4">
-                ¿Por qué elegirnos?
-            </h2>
-            <p class="text-slate-600 max-w-2xl mx-auto">
-                Nos esforzamos por ofrecer el mejor servicio posible en cada
-                proyecto.
-            </p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {legendsData.map((legend) => <LegendCard legend={legend} />)}
+<section class="py-16 md:py-32 bg-white">
+    <div class="bf-container">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20">
+            <div
+                class="bg-slate-100 p-6 md:p-12 lg:p-20 flex flex-col justify-center"
+            >
+                <h2
+                    class="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 uppercase tracking-tighter mb-6 md:mb-10 leading-[0.9]"
+                >
+                    Por qué <br />
+                    <span class="text-blue-600">Elegirnos</span>
+                </h2>
+                <p
+                    class="text-lg md:text-xl font-bold text-slate-600 mb-8 md:mb-12"
+                >
+                    No somos una empresa más. Somos tu socio de confianza en
+                    construcción.
+                </p>
+                <div class="w-16 md:w-24 h-4 bg-slate-900"></div>
+            </div>
+
+            <div class="grid gap-6">
+                {
+                    legendsData.map((item) => (
+                        <LegendCard
+                            title={item.title}
+                            description={item.description}
+                            iconName={item.iconName}
+                        />
+                    ))
+                }
+            </div>
         </div>
     </div>
 </section>
