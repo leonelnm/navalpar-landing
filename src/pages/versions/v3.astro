@@ -1,0 +1,27 @@
+---
+import LayoutV3 from "../../layouts/LayoutV3.astro";
+import { seo } from "../../data/data";
+import Header from "../../components/v3/Header.astro";
+import Hero from "../../components/v3/Hero.astro";
+import Services from "../../components/v3/Services.astro";
+import Elegir from "../../components/v3/Elegir.astro";
+import Contacto from "../../components/v3/Contacto.astro";
+import Presupuesto from "../../components/v3/Presupuesto.astro";
+import Footer from "../../components/v3/Footer.astro";
+import ButtonReturnTop from "../../components/ui/ButtonReturnTop.astro";
+
+const { title, description } = seo().index;
+---
+
+<LayoutV3 title={`V3 - ${title}`} description={description}>
+    <Header />
+    <main>
+        <Hero />
+        <Services />
+        <Elegir />
+        <Contacto />
+        <Presupuesto />
+    </main>
+    <Footer />
+    <ButtonReturnTop variant="orange" />
+</LayoutV3>

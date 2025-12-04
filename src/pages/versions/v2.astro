@@ -1,0 +1,27 @@
+---
+import LayoutV2 from "../../layouts/LayoutV2.astro";
+import { seo } from "../../data/data";
+import Header from "../../components/v2/Header.astro";
+import Hero from "../../components/v2/Hero.astro";
+import Services from "../../components/v2/Services.astro";
+import Elegir from "../../components/v2/Elegir.astro";
+import Contacto from "../../components/v2/Contacto.astro";
+import Presupuesto from "../../components/v2/Presupuesto.astro";
+import Footer from "../../components/v2/Footer.astro";
+import ButtonReturnTop from "../../components/ui/ButtonReturnTop.astro";
+
+const { title, description } = seo().index;
+---
+
+<LayoutV2 title={`V2 - ${title}`} description={description}>
+    <Header />
+    <main>
+        <Hero />
+        <Services />
+        <Elegir />
+        <Contacto />
+        <Presupuesto />
+    </main>
+    <Footer />
+    <ButtonReturnTop />
+</LayoutV2>

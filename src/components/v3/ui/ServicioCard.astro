@@ -1,0 +1,40 @@
+---
+import { icons } from "../../../data/icons";
+
+interface Props {
+    servicio: {
+        iconName: string;
+        title: string;
+        description: string;
+    };
+}
+
+const { servicio } = Astro.props;
+const Icon = icons[servicio.iconName] || icons["home_repair_service"];
+---
+
+<article
+    class="group relative bg-slate-800 p-8 pt-12 transition-all duration-300 hover:-translate-y-2"
+>
+    <div
+        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-600 to-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+    >
+    </div>
+
+    <div
+        class="absolute -top-6 left-8 w-16 h-16 bg-slate-900 border-2 border-orange-600 flex items-center justify-center text-orange-500 shadow-lg shadow-orange-900/20 group-hover:bg-orange-600 group-hover:text-white transition-colors duration-300"
+    >
+        <Icon class="w-8 h-8" />
+    </div>
+
+    <h3
+        class="text-2xl font-bold text-white mb-4 font-oswald uppercase tracking-wide mt-4"
+    >
+        {servicio.title}
+    </h3>
+    <p
+        class="text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors"
+    >
+        {servicio.description}
+    </p>
+</article>
