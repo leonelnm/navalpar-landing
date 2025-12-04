@@ -1,0 +1,183 @@
+---
+import { companyInfo } from "../../data/data";
+import { icons } from "../../data/icons";
+
+const { phoneNumbers, email, address } = companyInfo();
+const PhoneIcon = icons["phone"];
+const EmailIcon = icons["mail"];
+const LocationIcon = icons["location_on"];
+
+const numbersFormatted = phoneNumbers.map((number) =>
+    number.replace(/\s+/g, ""),
+);
+---
+
+<footer class="bg-black text-slate-400 py-20 border-t border-slate-900">
+    <div class="container mx-auto px-4 md:px-6">
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16"
+        >
+            <div>
+                <a
+                    href="/versions/v3"
+                    class="flex items-center gap-3 mb-8 group"
+                >
+                    <div
+                        class="w-12 h-12 bg-orange-600 flex items-center justify-center text-white font-bold text-2xl transform -skew-x-12 group-hover:bg-orange-500 transition-colors"
+                    >
+                        <span class="transform skew-x-12">N</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span
+                            class="text-white font-bold text-2xl leading-none tracking-tight font-oswald uppercase"
+                            >Navalpar</span
+                        >
+                        <span
+                            class="text-slate-500 text-xs font-bold tracking-[0.2em] uppercase"
+                            >Servicios</span
+                        >
+                    </div>
+                </a>
+                <p class="text-slate-500 leading-relaxed mb-8">
+                    Líderes en servicios de mantenimiento y reformas.
+                    Construimos el futuro con calidad y precisión.
+                </p>
+            </div>
+
+            <div>
+                <h3
+                    class="text-white font-bold text-lg mb-8 font-oswald uppercase tracking-wider"
+                >
+                    Enlaces
+                </h3>
+                <ul class="space-y-4">
+                    <li>
+                        <a
+                            href="#inicio"
+                            class="hover:text-orange-500 transition-colors uppercase text-sm tracking-wide"
+                            >Inicio</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#servicios"
+                            class="hover:text-orange-500 transition-colors uppercase text-sm tracking-wide"
+                            >Servicios</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#contacto"
+                            class="hover:text-orange-500 transition-colors uppercase text-sm tracking-wide"
+                            >Contacto</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#presupuesto"
+                            class="hover:text-orange-500 transition-colors uppercase text-sm tracking-wide"
+                            >Presupuesto</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/aviso-legal"
+                            class="hover:text-orange-500 transition-colors uppercase text-sm tracking-wide"
+                            >Aviso Legal</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/politica-de-privacidad"
+                            class="hover:text-orange-500 transition-colors uppercase text-sm tracking-wide"
+                            >Política de Privacidad</a
+                        >
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3
+                    class="text-white font-bold text-lg mb-8 font-oswald uppercase tracking-wider"
+                >
+                    Contacto
+                </h3>
+                <ul class="space-y-6">
+                    <li class="flex items-start gap-4">
+                        <LocationIcon
+                            class="w-6 h-6 text-orange-600 shrink-0 mt-0.5"
+                        />
+                        <span>{address}</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <PhoneIcon class="w-5 h-5 text-orange-600 shrink-0" />
+                        <div class="flex flex-col">
+                            {
+                                phoneNumbers.map((number, index) => (
+                                    <a
+                                        href={`tel:${numbersFormatted[index]}`}
+                                        class="hover:text-orange-500 transition-colors font-bold text-white"
+                                    >
+                                        {number}
+                                    </a>
+                                ))
+                            }
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <EmailIcon class="w-5 h-5 text-orange-600 shrink-0" />
+                        <a
+                            href={`mailto:${email}`}
+                            class="hover:text-orange-500 transition-colors"
+                            >{email}</a
+                        >
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3
+                    class="text-white font-bold text-lg mb-8 font-oswald uppercase tracking-wider"
+                >
+                    Horario
+                </h3>
+                <div class="bg-slate-900 p-6 border-l-2 border-orange-600">
+                    {}
+                    <p
+                        class="text-slate-500 mb-2 text-sm uppercase tracking-wide"
+                    >
+                        Lunes - Viernes
+                    </p>
+                    <p class="text-white font-bold mb-4 text-xl font-oswald">
+                        9:00 - 19:00
+                    </p>
+                    <p
+                        class="text-slate-500 mb-2 text-sm uppercase tracking-wide"
+                    >
+                        Sábado
+                    </p>
+                    <p class="text-white font-bold text-xl font-oswald">
+                        10:00 - 14:00
+                    </p>
+                    <p
+                        class="text-slate-500 mb-2 text-sm uppercase tracking-wide"
+                    >
+                        Domingo
+                    </p>
+                    <p class="text-white font-bold text-xl font-oswald">
+                        Cerrado
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="border-t border-slate-900 pt-8 text-center text-slate-600 text-sm flex flex-col md:flex-row justify-between items-center"
+        >
+            <p>
+                &copy; {new Date().getFullYear()} Servicios Navalpar. Todos los derechos
+                reservados.
+            </p>
+        </div>
+    </div>
+</footer>

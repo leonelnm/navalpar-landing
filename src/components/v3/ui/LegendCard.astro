@@ -1,0 +1,32 @@
+---
+import { icons } from "../../../data/icons";
+
+interface Props {
+    legend: {
+        iconName: string;
+        title: string;
+        description: string;
+    };
+}
+
+const { legend } = Astro.props;
+const Icon = icons[legend.iconName] || icons["home_repair_service"];
+---
+
+<div
+    class="bg-slate-900 border border-slate-800 p-8 hover:border-orange-600/50 transition-colors duration-300 group"
+>
+    <div
+        class="text-orange-600 mb-6 transform group-hover:scale-110 transition-transform duration-300"
+    >
+        <Icon class="w-10 h-10" />
+    </div>
+    <h3
+        class="text-xl font-bold text-white mb-3 font-oswald uppercase tracking-wide"
+    >
+        {legend.title}
+    </h3>
+    <p class="text-slate-400 text-sm leading-relaxed">
+        {legend.description}
+    </p>
+</div>
